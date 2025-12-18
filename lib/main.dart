@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/home_screen.dart';
 import 'package:get/get.dart';
-
+import 'package:device_preview/device_preview.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(enabled: true, builder: (context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -33,13 +33,17 @@ final ThemeData baseTheme = ThemeData(
 
 final ThemeData lightThemeData = baseTheme.copyWith(
   colorScheme: ColorScheme.fromSeed(
+    surface: Colors.white,
     seedColor: Colors.blue,
     brightness: Brightness.light,
   ),
+  scaffoldBackgroundColor: Colors.white,
 );
 final ThemeData darkThemeData = baseTheme.copyWith(
   colorScheme: ColorScheme.fromSeed(
-    seedColor: Colors.blue,
+    surface: Colors.black,
+    seedColor: Colors.grey,
     brightness: Brightness.dark,
   ),
+  scaffoldBackgroundColor: Colors.black,
 );
